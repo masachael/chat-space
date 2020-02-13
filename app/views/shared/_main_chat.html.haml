@@ -1,0 +1,34 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      %p
+        groupA
+      %ul.main-header__left-box__list
+        %li.main-header__left-box__list__current-group
+          Member :
+        %li.main-header__left-box__list__member-name
+          masa
+    .main-header__right-box__edit-btn  
+      = link_to "#",class: "rightedit-btn" do
+        Edit
+  .messages-list
+    .message
+      .message__datamessage
+        .message__datamessage__upper-info
+          aaaaaa
+        .message__datamessage__low-info
+          bbbbbb
+      .message__text
+        ddddddd
+        
+  .messages-form
+    %messages_form.new_message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", class: "submit-btn", value: "Send"} 
+  
+
+  
