@@ -3,9 +3,8 @@
     .side-bar__box
       %p.side-bar__box__username
         = current_user.name
-        masa
       %ul.side-bar__box__menu
-        %li.side-bar__box__nwe-group
+        %li.side-bar__box__new-group
           = link_to new_group_path do
             = icon('fas', 'edit')
         %li.side-bar__boc__edit-user
@@ -13,9 +12,8 @@
             = icon('fas', 'cog')
   .groups
     - current_user.groups.each do |group|
-      .group
-        = link_to '#' do
-          .group__name
-            = group.name
-          .group__message
-            メッセージはまだありません。
+      = link_to group_messages_path(group), class: "group" do
+        .group__group-name
+          = group.name
+        .group__latest-message
+          = group.show_last_message

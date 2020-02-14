@@ -2,17 +2,19 @@
   .main-header
     .main-header__left-box
       %p
-        groupA
+        = @group.name
       %ul.main-header__left-box__list
         %li.main-header__left-box__list__current-group
           Member :
         %li.main-header__left-box__list__member-name
-          masa
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
     .main-header__right-box__edit-btn  
-      = link_to "#",class: "rightedit-btn" do
+      = link_to edit_group_path(@group), class: "rightedit-btn" do
         Edit
   .messages-list
     .message
+      = render @messages
       .message__datamessage
         .message__datamessage__upper-info
           aaaaaa
@@ -20,15 +22,14 @@
           bbbbbb
       .message__text
         ddddddd
-        
+
   .messages-form
-    %messages_form.new_message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn", value: "Send"} 
-  
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
 
   
