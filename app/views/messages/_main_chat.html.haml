@@ -13,15 +13,7 @@
       = link_to edit_group_path(@group), class: "rightedit-btn" do
         Edit
   .messages-list
-    .message
-      = render @messages
-      .message__datamessage
-        .message__datamessage__upper-info
-          aaaaaa
-        .message__datamessage__low-info
-          bbbbbb
-      .message__text
-        ddddddd
+    = render @messages
 
   .messages-form
     = form_for [@group, @message] do |f|
@@ -31,5 +23,3 @@
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'input-box__image__file'
       = f.submit 'Send', class: 'submit-btn'
-
-  
