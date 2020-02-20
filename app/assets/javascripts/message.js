@@ -1,7 +1,6 @@
 $(function() {
   var buildHTML = function(message) {
     if (message.content && message.image ) {
-      console.log(last_message_id);
       var html =
       last_message_id = $('.message:last').data("message-id");
       `<div class="message" data-message-id=${message.id}>
@@ -99,7 +98,7 @@ $(function() {
       }
     })
     .fail(function() {
-      console.log('error');
+      alert('メッセージ送信に失敗しました');
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
