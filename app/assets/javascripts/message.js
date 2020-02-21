@@ -2,8 +2,7 @@ $(function() {
   var buildHTML = function(message) {
     if (message.content && message.image ) {
       var html =
-      last_message_id = $('.message:last').data("message-id");
-      `<div class="message" data-message-id=${message.id}>
+      `<div class="message" data-message-id="${message.id}">
           <div class="upper-message">
             <div class="upper-message__user-name">
               ${message.user_name}
@@ -17,11 +16,13 @@ $(function() {
               ${message.content}
             </p>
           </div>
-              ${message.image}
+          <div class="lower-message">
+            <img src= "${message.image}" >
+          </div>
         </div>`
     } else if (message.content) {
       var html =
-      `<div class="message" data-message-id=${message.id}>
+      `<div class="message" data-message-id="${message.id}">
           <div class="upper-message">
             <div class="upper-message__user-name">
               ${message.user_name}
@@ -38,7 +39,7 @@ $(function() {
         </div>`
     } else if (message.image) {
       var html = 
-        `<div class="message" data-message-id=${message.id}>
+        `<div class="message" data-message-id="${message.id}">
           <div class="upper-message">
             <div class="upper-message__user-name">
               ${message.user_name} 
@@ -48,7 +49,7 @@ $(function() {
           </div>
         </div>
         <div class="lower-message">
-              ${message.image}
+          <img src= "${message.image}" >
         </div>
       </div>`
     };
