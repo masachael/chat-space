@@ -15,6 +15,9 @@
   .messages-list
     = render @messages
 
+    -# - @messages.each do |message|
+    -#   = render partial: "message", local:{message: message}
+
   .messages-form
     = form_for [@group, @message] do |f|
       .input-box
